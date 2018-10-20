@@ -8,7 +8,7 @@ The project works well on the simulator and should work on Carla.
 Here's the description of the implementation, node by node.
 
 ### Waypoint Updater
-This node subscribes to '/current\_pose' and '/base\_waypoints' topics and publishes 50 waypoints ahead of the vehicle to the 'final\_waypoints' topic at 20 Hz. A longer range would not only be unuseful, but would cause instability to the controller. Moreover, more points require additional computation. In order to work with the camera active I've set a 10 Hz rate to the node (faster rate is not necessary).
+This node subscribes to '/current\_pose' and '/base\_waypoints' topics and publishes 20 waypoints ahead of the vehicle to the 'final\_waypoints' topic at 10 Hz. A longer range would not only be unuseful, but would cause instability to the controller. Moreover, more points require additional computation. The rate has been chosen to avoid latency with the camera; besides a faster rate is not necessary.
 
 ### DBW
 This node subscribes to '/vehicle/dbw\_enabled', '/twist\_cmd' and 'current\_velocity' topics and publishes to '/vehicle/steering\_cmd', '/vehicle/throttle\_cmd' and '/vehicle/brake\_cmd' the inputs of steering, throttle and brake at a 50 Hz rate.
