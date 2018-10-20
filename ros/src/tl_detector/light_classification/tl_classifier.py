@@ -22,12 +22,12 @@ class TLClassifier(object):
         #TODO implement light color prediction
         np_image = np.expand_dims(image, axis=0)
         
-        if is_site is True:
+        if is_site:
             out=self.model_site.predict(np_image)
         else:
             out=self.model_sim.predict(np_image)
-            
-        if out>.5:
+     
+        if out>.2:
             return TrafficLight.RED
         
         return TrafficLight.UNKNOWN
